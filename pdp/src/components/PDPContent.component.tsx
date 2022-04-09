@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getProductById } from 'home/products';
 import { currency } from 'home/utils';
@@ -13,7 +14,7 @@ export interface Product {
 }
 
 export default function PDPContent() {
-  const id = 1;
+  const { id } = useParams();
   const [product, setProduct] = useState<Product>(null);
 
   useEffect(() => {
@@ -40,6 +41,8 @@ export default function PDPContent() {
             {currency.format(product.price)}
           </div>
         </div>
+        <div className="mt-10">{product.description}</div>
+        <div className="mt-10">{product.longDescription}</div>
       </div>
     </div>
   );
