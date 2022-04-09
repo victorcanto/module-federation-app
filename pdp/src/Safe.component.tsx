@@ -18,7 +18,7 @@ export default class SafeComponent extends React.Component<
     };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: any) {
     return { hasError: true };
   }
 
